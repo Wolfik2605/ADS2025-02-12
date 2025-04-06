@@ -1,4 +1,4 @@
-package by.it.group451001.murashko;
+package by.it.group451001.murashko.lesson01;
 
 import org.junit.Test;
 
