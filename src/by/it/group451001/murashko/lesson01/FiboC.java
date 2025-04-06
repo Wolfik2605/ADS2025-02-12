@@ -24,7 +24,26 @@ public class FiboC {
     long fasterC(long n, int m) {
         //Интуитивно найти решение не всегда просто и
         //возможно потребуется дополнительный поиск информации
-        return -1L;
+        if (m == 1) return 0;
+
+        int period = 0;
+        long prev = 0, curr = 1;
+        do {
+            long next = (prev + curr) % m;
+            prev = curr;
+            curr = next;
+            period++;
+        } while (!(prev == 0 && curr == 1));
+
+        n = n % period;
+        prev = 0;
+        curr = 1;
+        for (int i = 2; i <= n; i++) {
+            long next = (prev + curr) % m;
+            prev = curr;
+            curr = next;
+        }
+        return curr % m;
     }
 
 
